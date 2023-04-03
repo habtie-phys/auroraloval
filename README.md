@@ -12,4 +12,4 @@ Sigernes, F., Dyrland, M., Brekke, P., Chernouss, S., Lorentzen, D. A., Oksavik,
 Zhang, Y., & Paxton, L. (2008). An empirical kp-dependent global auroral model based on timed/guvi fuv data.
  Journal of Atmospheric and Solar-Terrestrial Physics, 70 (8), 1231-1242. doi: https://doi.org/10.1016/j.jastp.2008.03.008
 
-![alt text](https://github.com/habtie-phys/auroraloval/tree/main/figures)
+![alt text](https://github.com/habtie-phys/auroraloval/blob/main/figures/FS_oval.png)
