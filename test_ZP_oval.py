@@ -27,8 +27,8 @@ yticklabel = 90-yticks
 clim = 10
 # In[]
 #
-fig, ax = plt.subplots(subplot_kw = {'projection':'polar'}, figsize = (5, 5))
-plt.subplots_adjust(left=0.05, bottom=0.06,  right=0.89,  top=0.90)
+fig, ax = plt.subplots(subplot_kw = {'projection':'polar'}, figsize = (6, 5))
+plt.subplots_adjust(left=0.02, bottom=0.06,  right=0.89,  top=0.90)
 
 (Q, elat, plat) = ZP_oval(mlt, kp, mlat, 0.25)
 #
@@ -57,8 +57,8 @@ ax.set_title("kp = "+str(kp), loc = 'right', fontsize = 13)
 # # axins = inset_axes(ax, width = "60%",  height = "5%", borderpad = -5, loc = 'lower center')
 # fig.colorbar(oval, ax = [axes[2], axes[5], axes[8]],  orientation="vertical", aspect = 50,
 #           anchor = (2.5, 0.5), ticks = list(range(clim+1)), label = 'mWm$^{-2}$')
-cb_ax = fig.add_axes([.93,.124,.02,.754])
+cb_ax = fig.add_axes([.86,.124,.02,.754])
 cb = fig.colorbar(oval,orientation='vertical',cax=cb_ax)
 cb.set_label(label = 'Auroral power [mWm$^{-2}$]', fontsize=13)
 fig.show()
-# plt.savefig('Zhang_Paxiton.png')
+plt.savefig('figures/ZP.png')

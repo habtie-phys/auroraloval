@@ -21,12 +21,12 @@ yticks = np.arange(10, 41, 10)
 yticklabel = 90-yticks
 #
 kp = 5
-thetha0 = FS_oval(kp, smlt, 0)
-thetha1 = FS_oval(kp, smlt, 1)
-thetha2 = FS_oval(kp, smlt, 2)
+thetha0 = FS_oval(kp, smlt, 0) # poleward boundary of the main oval
+thetha1 = FS_oval(kp, smlt, 1) # # equatorward boundary of the main oval
+thetha2 = FS_oval(kp, smlt, 2) # # Equatorward boundary of the diffuse oval
 #
 #%%
-fig, ax = plt.subplots(subplot_kw = {'projection':'polar'},figsize = (7, 7), \
+fig, ax = plt.subplots(subplot_kw = {'projection':'polar'},figsize = (6, 6), \
                        gridspec_kw={'top':0.89, 'bottom':0.03, 'left':0.08, 'right':0.89});
 ax.plot(x, thetha0, lw = 0)
 ax.plot(x, rmlat, '--', color = 'magenta', lw = 1., zorder = 2, label = 'EISCAT radar')
@@ -51,4 +51,5 @@ ax.tick_params(axis='y', colors='k')
 ax.set_title("Kp = "+str(kp), loc ='right', fontsize = 12)
 handles, labels = ax.get_legend_handles_labels()
 fig.legend(handles, labels, loc= (0.1, 0.95), fontsize = 12, ncol = 3)
+plt.savefig('figures/FS_oval.png')
 plt.show()
