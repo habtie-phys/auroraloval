@@ -23,7 +23,27 @@ def calc_HP(kp):
         HP = 4.592*np.exp(0.4731*kp)+20.47
     return HP
 #
-def calc_Q(mlt, mlat, kp):
+#
+def oval_bound(mlt, kp, pelim, mlat, Q):
+      cm = np.where(Q>=pelim, 1, 0) # comparison matrix
+      ej = np.argmax(cm, 0)
+      pj = np.argmax(np.flip(cm, 0), 0)
+      eqlat = mlat[ej]
+      pollat = np.flip(mlat)[pj]
+      k1 = np.argwhere(ej == 0)[:,0]
+      N = 0
+      for i in k1:
+          if np.all(cm[:,i])==0:
+              eqlat[i] = np.NaN
+              pollat[i] = np.NaN
+              N = N+1
+      return (eqlat, pollat)
+#
+def ZP_oval(mlt, kp, mlat, *arg, **kwargs):
+    if arg:
+        pelim = arg
+    else:
+        pelim = 0.25 
     zfile_new = r'data/zhang_new.mat'
     ds = loadmat(zfile_new)
     data = ds['zhang']
@@ -33,7 +53,7 @@ def calc_Q(mlt, mlat, kp):
     angle0 = angle.copy().reshape(mlt.size, 1)
     angle1 = np.tile(angle0, (1, 4))
     x = 90-mlat
-    x0 = x.copy().reshape(x.size, 1)
+    x0 = x.reshape(x.size, 1)
     x1 = np.tile(x0, (1, mlt.size))
     inds = np.argwhere(np.isnan(data[:,0]))[:,0]
     #
@@ -81,33 +101,5 @@ def calc_Q(mlt, mlat, kp):
     fm1 = (HP-HPm)/(HPm1-HPm)
     #
     Q = fm*Qm + fm1*Qm1
-    return Q
-#
-def oval_bound(kp, mlt, *arg, **kwargs):
-      mlat = np.arange(30, 90, 0.15)
-      Q = calc_Q(mlt, mlat, kp)
-      if arg:
-          pelim = arg
-      else:
-          if kp<2:
-              pelim = 0.5
-          elif kp<4:
-              pelim = 1
-          elif kp<6:
-              pelim = 1.5
-          elif kp>=6:
-              pelim = 2  
-      #
-      cm = np.where(Q>=pelim, 1, 0) # comparison matrix
-      ej = np.argmax(cm, 0)
-      pj = np.argmax(np.flip(cm, 0), 0)
-      eqlat = mlat[ej]
-      pollat = np.flip(mlat)[pj]
-      k1 = np.argwhere(ej == 0)[:,0]
-      N = 0
-      for i in k1:
-          if np.all(cm[:,i])==0:
-              eqlat[i] = np.NaN
-              pollat[i] = np.NaN
-              N = N+1
-      return (eqlat, pollat)
+    (elat, plat) = oval_bound(mlt, kp, pelim, mlat, Q)
+    return (Q, elat, plat)
