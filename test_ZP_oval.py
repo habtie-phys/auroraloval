@@ -21,7 +21,7 @@ t, lat = np.meshgrid(mlt, mlat)
 x = (np.pi/12)*t
 y =  90 - lat
 #
-yticks = np.int32(np.arange(10, 90-mlat[0]+1, 10))
+yticks = np.int32(np.arange(10, 90-50+1, 10))
 yticklabel = 90-yticks
 #
 clim = 6
@@ -45,9 +45,9 @@ ax.xaxis.set_major_locator(mticker.FixedLocator(ax.get_xticks()))
 ax.xaxis.set_major_formatter(mticker.FixedFormatter(xticks))
 ax.set_theta_zero_location("S")
 ax.set_xticklabels(xticks, fontsize = 13)
-ax.set_yticks(yticks[0::2])
+ax.set_yticks(yticks)
 # ax.set_yticks(yticks, minor = True)
-ax.set_yticklabels(yticklabel[0::2])
+ax.set_yticklabels(yticklabel)
 ax.set_rlabel_position(-160)
 ax.grid(color = 'w', axis = 'y')
 ax.tick_params(axis='y', colors='w')
