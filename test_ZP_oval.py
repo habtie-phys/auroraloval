@@ -24,7 +24,7 @@ y =  90 - lat
 yticks = np.int32(np.arange(10, 90-mlat[0]+1, 10))
 yticklabel = 90-yticks
 #
-clim = 10
+clim = 6
 # In[]
 #
 fig, ax = plt.subplots(subplot_kw = {'projection':'polar'}, figsize = (6, 5))
@@ -61,4 +61,4 @@ cb_ax = fig.add_axes([.86,.124,.02,.754])
 cb = fig.colorbar(oval,orientation='vertical',cax=cb_ax)
 cb.set_label(label = 'Auroral power [mWm$^{-2}$]', fontsize=13)
 fig.show()
-plt.savefig('figures/ZP.png')
+plt.savefig('figures/ZP_oval.png')
