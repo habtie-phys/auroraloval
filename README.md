@@ -1,10 +1,9 @@
 # auroral oval
-This python package conatins auroral two oval models, developed by  Starkov (1994a) and and Zhang & Paxton (2008). 
+This python package conatins two auroral oval models, developed by  Starkov (1994a) and and Zhang & Paxton (2008). 
 
 The models take Kp geomagnetic index and magnetic local time (mlt) as input and produce the poleward and equatorward boundaries of the auroral oval. 
 
-The Feldstein-Starkov and Zhang-Paxtonoval models are given in the **FS_oval.py** and **ZP_oval.py** files. 
-To get familiar with the models start from test scripts given seperately for each model 
+The Feldstein-Starkov and Zhang-Paxtonoval models are given in the **FS_oval.py** and **ZP_oval.py** files. To get familiar with the models start from test scripts given seperately for each model. 
 
 The Feldstein-Starkov model takes Kp index and MLT as input and produce either poleward or equtorward oval boundaries depending on the value of m.
 
