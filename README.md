@@ -3,10 +3,18 @@ This python package conatins auroral two oval models, developed by  Starkov (199
 
 The models take Kp geomagnetic index and magnetic local time (mlt) as input and produce the poleward and equatorward boundaries of the auroral oval. 
 
-The Feldstein-Starkov and Zhang-Paxtonoval models are given in the *FS_oval.py* and *ZP_oval.py* files. 
+The Feldstein-Starkov and Zhang-Paxtonoval models are given in the **FS_oval.py** and **ZP_oval.py** files. 
 To get familiar with the models start from test scripts given seperately for each model 
 
-![alt text](https://github.com/habtie-phys/auroraloval/blob/main/figures/FS_oval.png) ![alt text](https://github.com/habtie-phys/auroraloval/blob/main/figures/ZP_oval.png)
+The Feldstein-Starkov model takes Kp index and MLT as input and produce either poleward or equtorward oval boundaries depending on the value of m.
+
+
+
+![alt text](https://github.com/habtie-phys/auroraloval/blob/main/figures/FS_oval.png) 
+
+The Zhang-Paxtonoval model takes Kp index, MLT and magnetic latitude (MLAT) as input and calculates energy flux of precipitating electrons. The auroral oval boundaries are then drawen at coordinates of (MLT, MLAT) where the energy flux is equal to a pre-defined value. The default pre-defined energy flux value is 0.25 mW/m^2
+
+![alt text](https://github.com/habtie-phys/auroraloval/blob/main/figures/ZP_oval.png)
 
 # Refernces 
 Sigernes, F., Dyrland, M., Brekke, P., Chernouss, S., Lorentzen, D. A., Oksavik, K., & Deehr, C. S. (2011). Two methods to forecast auroral displays. J. Space Weather Space Clim., 1 (1). doi: https://doi.org/10.1051/swsc/2011003
