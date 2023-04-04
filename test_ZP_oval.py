@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mticker
 from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 # In[]
-mlat = np.arange(30, 90, 0.5)
+mlat = np.arange(30, 90, 0.15)
 mlt = np.arange(0, 24, 0.01)
 kp = 5
 #
